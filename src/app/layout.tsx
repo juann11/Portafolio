@@ -12,7 +12,7 @@ const body = Inter({ variable: "--font-body", subsets: ["latin"] });
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://web-eta-navy-n8ore2wil8.vercel.app"),
+  metadataBase: new URL("https://portafolio-juann11s-projects.vercel.app"),
   title: "Juan José Ospina · Ingeniero de Sistemas · Sistemas Web",
   description:
     "Juan José Ospina, ingeniero de sistemas en Medellín. Diseño y construcción de sistemas web completos: alcance, arquitectura, datos, interfaz y despliegue.",

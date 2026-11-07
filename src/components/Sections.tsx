@@ -91,8 +91,18 @@ export function Stack() {
 }
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", msg: "" });
+  const [estado, setEstado] = useState<"idle" | "enviando" | "ok" | "error">("idle");
+  const [form, setForm] = useState({ name: "", email: "", msg: "", empresa: "" });
+  const enviar = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setEstado("enviando");
+    try {
+      const res = await fetch("/api/contacto", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+      setEstado(res.ok ? "ok" : "error");
+    } catch {
+      setEstado("error");
+    }
+  };
   return (
     <section id="contacto" className="mx-auto max-w-6xl px-5 pb-24">
       <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0c1226] via-[#101a3a] to-[#0c1226] p-8 md:p-12">
@@ -100,12 +110,14 @@ export function Contact() {
         <p className="font-mono2 text-xs tracking-widest text-[#c8f04a]">05 · CONTACTO</p>
         <h2 className="font-display mt-2 max-w-2xl text-4xl font-bold md:text-5xl">Hablemos del sistema que necesitas poner a andar.</h2>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
-          <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
-            <input required placeholder="Tu nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
-            <input required type="email" placeholder="tu@empresa.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
-            <textarea required placeholder="Contexto: qué operación, qué datos, qué resultado esperas." rows={4} value={form.msg} onChange={(e) => setForm({ ...form, msg: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
-            {sent ? <p className="rounded-2xl bg-[#c8f04a]/15 p-3 text-sm text-[#c8f04a]">Recibido, {form.name}. Escríbeme a {profile.email} con ese contexto y te respondo con alcance y tiempos.</p>
-            : <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#c8f04a] px-4 py-3 font-semibold text-black hover:brightness-110"><Send size={16} /> Enviar</button>}
+          <form className="space-y-3" onSubmit={enviar}>
+            <input type="text" name="empresa" tabIndex={-1} autoComplete="off" aria-hidden value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} className="hidden" />
+            <input required aria-label="Tu nombre" maxLength={100} placeholder="Tu nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
+            <input required type="email" aria-label="Tu email" maxLength={200} placeholder="tu@empresa.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
+            <textarea required aria-label="Mensaje" maxLength={5000} placeholder="Contexto: qué operación, qué datos, qué resultado esperas." rows={4} value={form.msg} onChange={(e) => setForm({ ...form, msg: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
+            {estado === "ok" ? <p role="status" className="rounded-2xl bg-[#c8f04a]/15 p-3 text-sm text-[#c8f04a]">¡Listo, {form.name}! Me llegó tu mensaje; te respondo en menos de 24h con alcance y tiempos.</p>
+            : <button disabled={estado === "enviando"} className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#c8f04a] px-4 py-3 font-semibold text-black hover:brightness-110 disabled:opacity-60"><Send size={16} /> {estado === "enviando" ? "Enviando…" : "Enviar"}</button>}
+            {estado === "error" && <p role="alert" className="rounded-2xl bg-red-500/15 p-3 text-sm text-red-300">No se pudo enviar. Escríbeme directo a {profile.email} o por WhatsApp.</p>}
             <div className="flex gap-2 text-center text-sm">
               <a href={profile.whatsapp} target="_blank" rel="noreferrer" className="flex-1 rounded-2xl border border-white/15 py-2.5 hover:bg-white/5">WhatsApp</a>
               <a href={`mailto:${profile.email}`} className="flex-1 rounded-2xl border border-white/15 py-2.5 hover:bg-white/5">Email</a>

@@ -34,6 +34,7 @@ export default function Projects() {
                     {p.title}
                   </span>
                   <span className="mt-1 block text-sm text-[#57e6ff]">{p.subtitle}</span>
+                  <span className="mt-2 block font-mono2 text-xs text-[#c8f04a]">→ {p.metrica}</span>
                 </span>
                 <span className="hidden flex-wrap gap-1.5 md:flex">
                   {p.tech.slice(0, 3).map((t) => (
@@ -95,16 +96,6 @@ export default function Projects() {
             </div>
           );
         })}
-      </div>
-
-      <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] py-3">
-        <div className="flex w-max animate-[marquee_28s_linear_infinite] gap-8 whitespace-nowrap px-4 font-display text-sm font-bold tracking-widest text-slate-400">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="flex items-center gap-8">
-              DISPONIBLE PARA PROYECTOS <span className="text-[#c8f04a]">●</span> TRABAJO SELECCIONADO <span className="text-slate-600">◆</span>
-            </span>
-          ))}
-        </div>
       </div>
 
       <p className="mt-6 flex items-center justify-end gap-1 text-sm text-slate-400">

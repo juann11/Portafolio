@@ -2,7 +2,6 @@ export const profile = {
   name: "Juan José Ospina",
   site: "https://portafolio-jjoa-dev.vercel.app",
   shortName: "Juan Ospina",
-  role: "Ingeniero de Software · Web · Móvil · Datos · IA aplicada",
   tagline:
     "Resuelvo operación real con software: sistemas web, apps móviles, APIs con IA/OCR, datos y automatización. Del levantamiento al despliegue, con estructura que se puede mantener.",
   frentes: ["Sistemas web", "Apps móviles", "APIs + OCR/IA", "Datos y reportes", "Automatización"],
@@ -26,6 +25,7 @@ export type Project = {
   featured?: boolean;
   highlights: string[];
   impact: string;
+  metrica: string;
   cover: string;
   story: { label: string; text: string }[];
 };
@@ -55,6 +55,7 @@ export const projects: Project[] = [
       "~84 pruebas: auth, CRUD, permisos, upload, OCR",
     ],
     impact: "Facturación digitalizada de punta a punta, con evidencia testeada",
+    metrica: "~84 pruebas automatizadas",
     cover: "from-[#0ea5e9] via-[#1e3a8a] to-[#060913]",
   },
   {
@@ -80,6 +81,7 @@ export const projects: Project[] = [
       "Comentarios y trazabilidad por ticket",
     ],
     impact: "Soporte ordenado y medible en vez de chats sueltos",
+    metrica: "SLA automático en 4 niveles",
     cover: "from-[#c8f04a] via-[#14532d] to-[#060913]",
   },
   {
@@ -105,6 +107,7 @@ export const projects: Project[] = [
       "Notas con peso porcentual y promedio",
     ],
     impact: "Toda la vida académica en una app que no necesita internet",
+    metrica: "100% offline · Android nativo",
     cover: "from-[#8b7bff] via-[#4c1d95] to-[#060913]",
   },
   {
@@ -129,6 +132,7 @@ export const projects: Project[] = [
       "Deploy en 3 servicios con mismo dominio",
     ],
     impact: "Juego completo en equipo, con arquitectura de producto real",
+    metrica: "10 minijuegos · 21 pantallas",
     cover: "from-[#fb7185] via-[#7c2d12] to-[#060913]",
   },
   {
@@ -154,6 +158,7 @@ export const projects: Project[] = [
       "Ruta de evolución definida hacia Postgres/Supabase",
     ],
     impact: "Sistema operable sin infraestructura, listo para escalar a multi-sede",
+    metrica: "0 servidores · funciona sin internet",
     cover: "from-[#57e6ff] via-[#0e7490] to-[#060913]",
   },
 ];
@@ -242,8 +247,8 @@ export const techMarquee = [
 ];
 
 export const stats = [
-  { value: "+19", label: "Proyectos en Git" },
-  { value: "B2B", label: "Sistemas para empresas" },
-  { value: "E2E", label: "Alcance → deploy" },
-  { value: "+8", label: "Tecnologías en producción" },
+  { value: "5", label: "Sistemas completos" },
+  { value: "3", label: "Plataformas: web, Android, API" },
+  { value: "~84", label: "Pruebas en un solo sistema" },
+  { value: "100%", label: "Offline en 2 apps" },
 ];

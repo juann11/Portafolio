@@ -1,32 +1,10 @@
 "use client";
 import { ArrowRight, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
-import { useEffect, useState } from "react";
+import Terminal from "@/components/Terminal";
 import { profile, techMarquee } from "@/data/portfolio";
 
-const lines = [
-  "alcance cerrado antes de codificar",
-  "datos modelados, no campos sueltos",
-  "offline-first cuando la operación lo exige",
-  "deploy + docs + transferencia",
-];
-
 export default function Hero() {
-  const [li, setLi] = useState(0);
-  const [txt, setTxt] = useState("");
-  useEffect(() => {
-    const full = lines[li % lines.length];
-    // Con movimiento reducido: muestra la frase completa de una y no rota.
-    const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let i = 0;
-    const t = setInterval(() => {
-      i = reducido ? full.length : i + 1;
-      setTxt(full.slice(0, i));
-      if (i >= full.length) { clearInterval(t); if (!reducido) setTimeout(() => setLi((v) => v + 1), 1600); }
-    }, 42);
-    return () => clearInterval(t);
-  }, [li]);
-
   return (
     <section id="top" className="relative overflow-hidden px-5 pb-16 pt-32 md:pt-40">
       <div className="blueprint-grid absolute inset-0" aria-hidden />
@@ -36,8 +14,8 @@ export default function Hero() {
           <div className="animate-[subir_.5s_ease-out_both] mb-5 inline-flex items-center gap-2 rounded-full border border-[#c8f04a]/40 bg-[#c8f04a]/10 px-4 py-1.5 text-xs font-semibold text-[#c8f04a]">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#c8f04a]" /> {profile.availability}
           </div>
-          <h1 className="animate-[subir_.5s_.08s_ease-out_both] font-display text-5xl font-bold leading-[1.02] md:text-7xl">
-            Software que resuelve <span className="bg-gradient-to-r from-[#c8f04a] via-[#57e6ff] to-[#8b7bff] bg-clip-text text-transparent">operación real</span>
+          <h1 className="animate-[subir_.5s_.08s_ease-out_both] text-balance font-display text-5xl font-bold leading-[1.02] md:text-7xl">
+            Software que resuelve <span className="relative whitespace-nowrap text-[#c8f04a]">operación real<span aria-hidden className="absolute -bottom-1 left-0 h-[.08em] w-full origin-left animate-[trazo_.7s_.6s_cubic-bezier(.65,0,.35,1)_both] rounded-full bg-[#c8f04a]" /></span>
             <br />web · móvil · datos <span className="text-stroke">+ IA</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-slate-300">{profile.tagline}</p>
@@ -57,30 +35,8 @@ export default function Hero() {
             <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="grid h-12 w-12 place-items-center rounded-full border border-white/10 text-slate-300 transition hover:border-white/40 hover:text-white"><GithubIcon size={18} /></a>
           </div>
         </div>
-        <div className="animate-[subir_.5s_.15s_ease-out_both] space-y-4">
-          <div className="glass overflow-hidden rounded-3xl">
-            <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-              <span className="h-3 w-3 rounded-full bg-red-400" /><span className="h-3 w-3 rounded-full bg-yellow-400" /><span className="h-3 w-3 rounded-full bg-green-400" />
-              <span className="ml-2 font-mono2 text-xs text-slate-400">sistema · blueprint de entrega</span>
-            </div>
-            <div className="space-y-2.5 p-5">
-              {[
-                ["LO QUE VES", "Pantallas rápidas y claras, que cualquiera usa sin manual", "#57e6ff"],
-                ["LO QUE PASA ADENTRO", "Accesos por rol y datos protegidos, nada expuesto", "#8b7bff"],
-                ["TUS DATOS", "Ordenados, con reportes que sí sirven para decidir", "#c8f04a"],
-                ["ENTREGA", "Funcionando en internet + te enseño a manejarlo", "#e8eefc"],
-              ].map(([layer, desc, color]) => (
-                <div key={layer} className="flex items-center gap-3 rounded-2xl bg-black/40 px-4 py-3">
-                  <span className="h-8 w-1.5 rounded-full" style={{ background: color }} />
-                  <div>
-                    <p className="font-mono2 text-[11px] font-bold tracking-widest" style={{ color }}>{layer}</p>
-                    <p className="text-xs text-slate-300">{desc}</p>
-                  </div>
-                </div>
-              ))}
-              <p className="pt-1 font-mono2 text-[13px] text-[#c8f04a]">$ {txt}<span className="animate-[blink_1.1s_steps(2)_infinite]">▊</span></p>
-            </div>
-          </div>
+        <div className="animate-[subir_.5s_.15s_ease-out_both]">
+          <Terminal />
         </div>
       </div>
       <div className="relative mx-auto mt-14 max-w-6xl overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] py-3">

@@ -72,3 +72,22 @@ body {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   html { scroll-behavior: auto; }
 }
+@keyframes trazo { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Mini-demos de proyectos: ciclo común de 6s */
+.demo-escaner { animation: demo-escaner 6s cubic-bezier(.45,0,.55,1) infinite; }
+@keyframes demo-escaner { 0% { transform: translateY(-100%); opacity: 1; } 45% { transform: translateY(560%); opacity: 1; } 50%, 100% { transform: translateY(560%); opacity: 0; } }
+.demo-campo { animation: demo-campo 6s ease-out infinite both; }
+@keyframes demo-campo { 0% { opacity: 0; transform: translateX(-6px); } 8%, 85% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; } }
+.demo-sla { animation: demo-sla 6s linear infinite; }
+@keyframes demo-sla { from { transform: scaleX(1); } to { transform: scaleX(.12); } }
+.demo-odometro { animation: demo-odometro 6s cubic-bezier(.65,0,.35,1) infinite; }
+@keyframes demo-odometro { 0%, 20% { transform: translateY(0); } 30%, 50% { transform: translateY(-25%); } 60%, 85% { transform: translateY(-50%); } 95%, 100% { transform: translateY(-75%); } }
+.demo-dia { animation: demo-dia 6s ease-out infinite both; }
+@keyframes demo-dia { 0% { background: transparent; color: rgb(148 163 184); transform: scale(.6); } 6%, 90% { background: #c8f04a; color: #000; transform: scale(1); } 100% { background: transparent; color: rgb(148 163 184); } }
+.demo-correcta { animation: demo-correcta 6s ease-out infinite; }
+@keyframes demo-correcta { 0%, 35% { border-color: rgb(255 255 255 / .1); background: transparent; color: inherit; } 42%, 88% { border-color: #c8f04a; background: rgb(200 240 74 / .15); color: #c8f04a; } 100% { border-color: rgb(255 255 255 / .1); } }
+.demo-flotar { animation: demo-flotar 6s ease-out infinite; }
+@keyframes demo-flotar { 0%, 42% { opacity: 0; transform: translateY(6px); } 50% { opacity: 1; transform: translateY(0); } 70%, 100% { opacity: 0; transform: translateY(-10px); } }
+.demo-stock { animation: demo-stock 6s cubic-bezier(.65,0,.35,1) infinite; }
+@keyframes demo-stock { 0%, 30% { transform: translateY(0); } 38%, 90% { transform: translateY(-50%); } 100% { transform: translateY(0); } }

@@ -1,5 +1,6 @@
 export const profile = {
   name: "Juan José Ospina",
+  site: "https://portafolio-juanjose-ospina.vercel.app",
   shortName: "Juan Ospina",
   role: "Ingeniero de Software · Web · Móvil · Datos · IA aplicada",
   tagline:
@@ -157,14 +158,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const archiveRepos = [
-  { name: "Cartas · Next.js", url: "https://github.com/juann11/cartas", demo: "https://cartas-virid.vercel.app", note: "App Router + deploy continuo" },
-  { name: "IngS Web Platform", url: "https://github.com/juann11/Ingenieria_softtt", demo: "https://ings-two.vercel.app", note: "Requerimientos → despliegue" },
-  { name: "Front Lab", url: "https://github.com/juann11/Front", demo: "", note: "Patrones de interfaz reutilizables" },
-  { name: "Cartass v2", url: "https://github.com/juann11/cartass", demo: "", note: "Refactor y evolución controlada" },
-  { name: "Control de Acceso · Java", url: "https://github.com/juann11/Ingenier-a-Software", demo: "", note: "Reglas de negocio + POO" },
-];
-
 export const skills = [
   { group: "Frontend y Móvil", items: ["Next.js", "React + Vite", "TypeScript", "Tailwind", "Kotlin", "Jetpack Compose", "Figma"] },
   { group: "Backend y Datos", items: ["Node.js", "Express", "NestJS", "Python", "FastAPI", "Postgres", "Supabase", "Firebase", "Room", "JWT + RBAC"] },
@@ -229,29 +222,6 @@ export const method = [
   ["04 · Entrego", "Despliegue, documentación y transferencia. El sistema debe sobrevivir sin mí."],
 ];
 
-export const privateCases = [
-  {
-    slug: "bastion-core",
-    title: "Bastion Core",
-    subtitle: "Núcleo y sistema base · acceso restringido",
-    description:
-      "Núcleo compartido del ecosistema: base de estilos, tokens, componentes y criterios de estructura para que varios proyectos construyan sobre lo mismo sin divergir.",
-    tech: ["Design System", "CSS", "Componentes base", "Estándares"],
-    role: "Definición del núcleo, tokens y reglas de extensión",
-    note: "Núcleo interno. Puedo mostrar la metodología y un sample sanitizado.",
-  },
-  {
-    slug: "moviles-taller",
-    title: "Apps Móviles · Taller y curso",
-    subtitle: "Dos proyectos de aplicaciones móviles",
-    description:
-      "Aplicaciones móviles con navegación, consumo de APIs, manejo de estados y persistencia. Enfoque en arquitectura móvil: capas, errores y experiencia offline.",
-    tech: ["Móvil", "Consumo de API", "Navegación", "Persistencia"],
-    role: "Arquitectura de pantallas, datos y manejo de errores",
-    note: "Proyectos de formación con estándar de entrega profesional.",
-  },
-];
-
 const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 export const techMarquee = [
   { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg`, invert: true },
@@ -270,8 +240,6 @@ export const techMarquee = [
   { name: "Trello", icon: `${CDN}/trello/trello-plain.svg` },
   { name: "n8n", icon: "" },
 ];
-
-export const stackMarquee = techMarquee.map((t) => t.name);
 
 export const stats = [
   { value: "+19", label: "Proyectos en Git" },

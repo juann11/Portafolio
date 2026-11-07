@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { profile } from "@/data/portfolio";
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: "/", lastModified: new Date() }];
+  return [{ url: profile.site, lastModified: new Date() }];
 }

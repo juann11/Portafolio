@@ -6,13 +6,14 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorGlow from "@/components/CursorGlow";
 import CommandPalette from "@/components/CommandPalette";
+import { profile } from "@/data/portfolio";
 
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const body = Inter({ variable: "--font-body", subsets: ["latin"] });
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portafolio-juanjose-ospina.vercel.app"),
+  metadataBase: new URL(profile.site),
   title: "Juan José Ospina · Ingeniero de Sistemas · Sistemas Web",
   description:
     "Juan José Ospina, ingeniero de sistemas en Medellín. Diseño y construcción de sistemas web completos: alcance, arquitectura, datos, interfaz y despliegue.",
@@ -39,7 +40,9 @@ export default function RootLayout(props: LayoutProps<"/">) {
     jobTitle: "Ingeniero de Sistemas · Desarrollo de Software",
     address: { "@type": "PostalAddress", addressLocality: "Medellín", addressCountry: "CO" },
     alumniOf: "UPB",
-    url: "https://github.com/juann11",
+    url: profile.site,
+    email: profile.email,
+    sameAs: [profile.github, profile.linkedin],
     knowsAbout: ["Next.js", "React", "Node.js", "NestJS", "Python", "Kotlin", "Postgres", "Supabase", "Docker", "n8n"],
   };
   return (

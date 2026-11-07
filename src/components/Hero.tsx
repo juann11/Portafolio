@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Compass, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { useEffect, useState } from "react";
@@ -17,11 +16,13 @@ export default function Hero() {
   const [txt, setTxt] = useState("");
   useEffect(() => {
     const full = lines[li % lines.length];
+    // Con movimiento reducido: muestra la frase completa de una y no rota.
+    const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let i = 0;
     const t = setInterval(() => {
-      i++;
+      i = reducido ? full.length : i + 1;
       setTxt(full.slice(0, i));
-      if (i >= full.length) { clearInterval(t); setTimeout(() => setLi((v) => v + 1), 1600); }
+      if (i >= full.length) { clearInterval(t); if (!reducido) setTimeout(() => setLi((v) => v + 1), 1600); }
     }, 42);
     return () => clearInterval(t);
   }, [li]);
@@ -32,13 +33,13 @@ export default function Hero() {
       <div className="absolute -top-32 left-1/2 h-[420px] w-[820px] -translate-x-1/2 animate-[aurora_14s_ease-in-out_infinite_alternate] rounded-full bg-gradient-to-r from-[#57e6ff]/30 via-[#8b7bff]/30 to-[#c8f04a]/20 blur-[110px]" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
         <div>
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#c8f04a]/40 bg-[#c8f04a]/10 px-4 py-1.5 text-xs font-semibold text-[#c8f04a]">
+          <div className="animate-[subir_.5s_ease-out_both] mb-5 inline-flex items-center gap-2 rounded-full border border-[#c8f04a]/40 bg-[#c8f04a]/10 px-4 py-1.5 text-xs font-semibold text-[#c8f04a]">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#c8f04a]" /> {profile.availability}
-          </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="font-display text-5xl font-bold leading-[1.02] md:text-7xl">
+          </div>
+          <h1 className="animate-[subir_.5s_.08s_ease-out_both] font-display text-5xl font-bold leading-[1.02] md:text-7xl">
             Software que resuelve <span className="bg-gradient-to-r from-[#c8f04a] via-[#57e6ff] to-[#8b7bff] bg-clip-text text-transparent">operación real</span>
             <br />web · móvil · datos <span className="text-stroke">+ IA</span>
-          </motion.h1>
+          </h1>
           <p className="mt-5 max-w-xl text-lg text-slate-300">{profile.tagline}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {profile.frentes.map((f) => (
@@ -65,7 +66,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.15 }} className="space-y-4">
+        <div className="animate-[subir_.5s_.15s_ease-out_both] space-y-4">
           <div className="glass overflow-hidden rounded-3xl">
             <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-red-400" /><span className="h-3 w-3 rounded-full bg-yellow-400" /><span className="h-3 w-3 rounded-full bg-green-400" />
@@ -93,7 +94,7 @@ export default function Hero() {
             <Sparkles size={14} className="shrink-0 text-slate-400" />
             <p className="text-slate-200">Entregable: sistema documentado, instalable y mantenible.</p>
           </div>
-        </motion.div>
+        </div>
       </div>
       <div className="relative mx-auto mt-14 max-w-6xl overflow-hidden rounded-2xl border border-white/10 bg-white/[.03] py-3">
         <div className="flex w-max animate-[marquee_28s_linear_infinite] items-center gap-8 whitespace-nowrap px-4">

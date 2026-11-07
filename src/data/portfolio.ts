@@ -1,6 +1,6 @@
 export const profile = {
   name: "Juan José Ospina",
-  site: "https://portafolio-juanjose-ospina.vercel.app",
+  site: "https://portafolio-jjoa-dev.vercel.app",
   shortName: "Juan Ospina",
   role: "Ingeniero de Software · Web · Móvil · Datos · IA aplicada",
   tagline:

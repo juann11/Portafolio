@@ -245,10 +245,3 @@ export const techMarquee = [
   { name: "Trello", icon: `${CDN}/trello/trello-plain.svg` },
   { name: "n8n", icon: "" },
 ];
-
-export const stats = [
-  { value: "5", label: "Sistemas completos" },
-  { value: "3", label: "Plataformas: web, Android, API" },
-  { value: "~84", label: "Pruebas en un solo sistema" },
-  { value: "100%", label: "Offline en 2 apps" },
-];

@@ -2,7 +2,7 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { useEffect, useState } from "react";
-import { profile, techMarquee, stats } from "@/data/portfolio";
+import { profile, techMarquee } from "@/data/portfolio";
 
 const lines = [
   "alcance cerrado antes de codificar",
@@ -55,14 +55,6 @@ export default function Hero() {
             </a>
             <a href="#contacto" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Hablemos</a>
             <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="grid h-12 w-12 place-items-center rounded-full border border-white/10 text-slate-300 transition hover:border-white/40 hover:text-white"><GithubIcon size={18} /></a>
-          </div>
-          <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="glass rounded-2xl p-3 text-center">
-                <p className="font-display text-xl font-bold text-white">{s.value}</p>
-                <p className="text-[11px] text-slate-400">{s.label}</p>
-              </div>
-            ))}
           </div>
         </div>
         <div className="animate-[subir_.5s_.15s_ease-out_both] space-y-4">

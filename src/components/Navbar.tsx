@@ -33,7 +33,7 @@ export default function Navbar() {
             Hablemos
           </a>
         </div>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="menu">
+        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open}>
           {open ? <X /> : <Menu />}
         </button>
       </nav>

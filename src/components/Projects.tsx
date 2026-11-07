@@ -25,6 +25,7 @@ export default function Projects() {
             <div key={p.slug} className="border-b border-white/10">
               <button
                 onClick={() => setOpen(isOpen ? null : p.slug)}
+                aria-expanded={isOpen}
                 className="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 py-6 text-left md:grid-cols-[70px_1fr_220px_40px] md:gap-6"
               >
                 <span className={`font-mono2 text-sm ${isOpen ? "text-[#c8f04a]" : "text-slate-600"}`}>/{num}</span>

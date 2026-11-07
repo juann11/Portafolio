@@ -23,10 +23,10 @@ export default function CommandPalette() {
   const list = actions.filter((a) => a.label.toLowerCase().includes(q.toLowerCase()));
   return (
     <div className="fixed inset-0 z-[70] grid place-items-start justify-center bg-black/70 p-6 pt-28" onClick={() => setOpen(false)}>
-      <div className="glass w-full max-w-lg rounded-2xl p-3" onClick={(e) => e.stopPropagation()}>
+      <div role="dialog" aria-modal="true" aria-label="Navegación rápida" className="glass w-full max-w-lg rounded-2xl p-3" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2">
           <Search size={16} className="text-slate-400" />
-          <input autoFocus value={q} onChange={(e) => setQ(e.target.value)} placeholder="Escribe o presiona Esc… (Ctrl+K)" className="w-full bg-transparent text-sm outline-none placeholder:text-slate-500" />
+          <input autoFocus aria-label="Buscar sección o enlace" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Escribe o presiona Esc… (Ctrl+K)" className="w-full bg-transparent text-sm outline-none placeholder:text-slate-500" />
         </div>
         <div className="mt-2 flex flex-col">
           {list.map((a) => (

@@ -91,3 +91,18 @@ body {
 @keyframes demo-flotar { 0%, 42% { opacity: 0; transform: translateY(6px); } 50% { opacity: 1; transform: translateY(0); } 70%, 100% { opacity: 0; transform: translateY(-10px); } }
 .demo-stock { animation: demo-stock 6s cubic-bezier(.65,0,.35,1) infinite; }
 @keyframes demo-stock { 0%, 30% { transform: translateY(0); } 38%, 90% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
+
+/* Fondo del hero: rejilla de puntos tenue + puntos lima que se encienden alrededor del cursor (--mx/--my los pone CursorGlow) */
+.fondo-hero {
+  background-image: radial-gradient(rgb(148 163 184 / .22) 1px, transparent 1.5px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 35%, transparent 85%);
+}
+.fondo-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#c8f04a 1.5px, transparent 2px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), black 0%, transparent 100%);
+}

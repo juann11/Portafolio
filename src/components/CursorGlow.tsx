@@ -11,6 +11,10 @@ export default function CursorGlow() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         if (brillo.current) brillo.current.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+        // Coordenadas de página para el fondo de puntos del hero (que está arriba del todo).
+        const raiz = document.documentElement.style;
+        raiz.setProperty("--mx", `${e.clientX}px`);
+        raiz.setProperty("--my", `${e.clientY + window.scrollY}px`);
       });
     };
     window.addEventListener("pointermove", mover, { passive: true });

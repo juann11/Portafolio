@@ -7,16 +7,17 @@ import { profile, techMarquee } from "@/data/portfolio";
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-5 pb-16 pt-32 md:pt-40">
-      <div className="blueprint-grid absolute inset-0" aria-hidden />
-      <div className="absolute -top-32 left-1/2 h-[420px] w-[820px] -translate-x-1/2 animate-[aurora_14s_ease-in-out_infinite_alternate] rounded-full bg-gradient-to-r from-[#57e6ff]/30 via-[#8b7bff]/30 to-[#c8f04a]/20 blur-[110px]" aria-hidden />
+      <div className="fondo-hero absolute inset-0" aria-hidden />
+      <div className="absolute -top-40 left-1/2 h-[420px] w-[900px] -translate-x-1/2 animate-[aurora_14s_ease-in-out_infinite_alternate] rounded-full bg-gradient-to-r from-[#57e6ff]/20 via-[#8b7bff]/25 to-[#c8f04a]/10 blur-[120px]" aria-hidden />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#060913]" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
         <div>
           <div className="animate-[subir_.5s_ease-out_both] mb-5 inline-flex items-center gap-2 rounded-full border border-[#c8f04a]/40 bg-[#c8f04a]/10 px-4 py-1.5 text-xs font-semibold text-[#c8f04a]">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#c8f04a]" /> {profile.availability}
           </div>
-          <h1 className="animate-[subir_.5s_.08s_ease-out_both] text-balance font-display text-5xl font-bold leading-[1.02] md:text-7xl">
+          <h1 className="animate-[subir_.5s_.08s_ease-out_both] font-display text-[2.6rem] font-bold leading-[1.02] sm:text-5xl md:text-7xl">
             Software que resuelve <span className="relative whitespace-nowrap text-[#c8f04a]">operación real<span aria-hidden className="absolute -bottom-1 left-0 h-[.08em] w-full origin-left animate-[trazo_.7s_.6s_cubic-bezier(.65,0,.35,1)_both] rounded-full bg-[#c8f04a]" /></span>
-            <br />web · móvil · datos <span className="text-stroke">+ IA</span>
+            <span className="mt-4 block text-2xl font-semibold leading-tight text-slate-300 md:text-4xl">web · móvil · datos <span className="whitespace-nowrap text-[#8b7bff]">+ IA</span></span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-slate-300">{profile.tagline}</p>
           <div className="mt-4 flex flex-wrap gap-2">

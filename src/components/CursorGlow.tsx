@@ -1,17 +1,27 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+
 export default function CursorGlow() {
-  const [pos, setPos] = useState({ x: -400, y: -400 });
+  const brillo = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const f = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", f);
-    return () => window.removeEventListener("mousemove", f);
+    // Movemos el elemento directo en el DOM: sin setState, React no re-renderiza en cada movimiento del mouse.
+    let frame = 0;
+    const mover = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        if (brillo.current) brillo.current.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+      });
+    };
+    window.addEventListener("pointermove", mover, { passive: true });
+    return () => { window.removeEventListener("pointermove", mover); cancelAnimationFrame(frame); };
   }, []);
   return (
     <div
+      ref={brillo}
       aria-hidden
-      className="pointer-events-none fixed z-0 h-[480px] w-[480px] rounded-full opacity-25 blur-[120px] transition-transform duration-150"
-      style={{ background: "radial-gradient(circle, #57e6ff 0%, #8b7bff 45%, transparent 70%)", transform: `translate(${pos.x - 240}px, ${pos.y - 240}px)` }}
+      className="pointer-events-none fixed left-0 top-0 z-0 h-[480px] w-[480px] rounded-full opacity-25 blur-[120px] transition-transform duration-150 motion-reduce:hidden"
+      style={{ background: "radial-gradient(circle, #57e6ff 0%, #8b7bff 45%, transparent 70%)", transform: "translate(-400px, -400px)" }}
     />
   );
 }

@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorGlow from "@/components/CursorGlow";
 import CommandPalette from "@/components/CommandPalette";
+import MovimientoReducido from "@/components/MovimientoReducido";
+import { Analytics } from "@vercel/analytics/next";
 import { profile } from "@/data/portfolio";
 
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -49,12 +51,15 @@ export default function RootLayout(props: LayoutProps<"/">) {
     <html lang="es" className={`${display.variable} ${body.variable} ${mono.variable} dark`}>
       <body className="min-h-screen antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <ScrollProgress />
-        <CursorGlow />
-        <Navbar />
-        <main>{props.children}</main>
-        <Footer />
-        <CommandPalette />
+        <MovimientoReducido>
+          <ScrollProgress />
+          <CursorGlow />
+          <Navbar />
+          <main>{props.children}</main>
+          <Footer />
+          <CommandPalette />
+        </MovimientoReducido>
+        <Analytics />
       </body>
     </html>
   );

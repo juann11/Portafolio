@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, MapPin, Compass, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { useEffect, useState } from "react";
 import { profile, techMarquee, stats } from "@/data/portfolio";
@@ -47,15 +47,14 @@ export default function Hero() {
             ))}
           </div>
           <p className="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-400">
-            <span className="flex items-center gap-1"><Compass size={15} /> {profile.role}</span>
             <span className="flex items-center gap-1"><MapPin size={15} /> {profile.location}</span>
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#proyectos" className="group flex items-center gap-2 rounded-full bg-[#c8f04a] px-6 py-3 font-semibold text-black transition hover:brightness-110">
-              Ver sistemas <ArrowRight size={17} className="transition group-hover:translate-x-1" />
+              Ver proyectos <ArrowRight size={17} className="transition group-hover:translate-x-1" />
             </a>
-            <a href="#contacto" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Hablar del proyecto</a>
-            <a href={profile.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-slate-300 hover:text-white"><GithubIcon size={17} /> Código</a>
+            <a href="#contacto" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Hablemos</a>
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="grid h-12 w-12 place-items-center rounded-full border border-white/10 text-slate-300 transition hover:border-white/40 hover:text-white"><GithubIcon size={18} /></a>
           </div>
           <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
             {stats.map((s) => (
@@ -89,10 +88,6 @@ export default function Hero() {
               ))}
               <p className="pt-1 font-mono2 text-[13px] text-[#c8f04a]">$ {txt}<span className="animate-[blink_1.1s_steps(2)_infinite]">▊</span></p>
             </div>
-          </div>
-          <div className="glass flex items-center gap-2 rounded-3xl p-4 text-xs">
-            <Sparkles size={14} className="shrink-0 text-slate-400" />
-            <p className="text-slate-200">Entregable: sistema documentado, instalable y mantenible.</p>
           </div>
         </div>
       </div>

@@ -19,13 +19,13 @@ export default function Image() {
           fontFamily: "monospace",
         }}
       >
-        <div style={{ fontSize: 28, color: "#57e6ff" }}>juan.dev — Medellín, CO</div>
+        <div style={{ fontSize: 28, color: "#57e6ff" }}>juan.dev</div>
         <div style={{ fontSize: 76, fontWeight: "bold", marginTop: 12 }}>Juan José Ospina</div>
         <div style={{ fontSize: 34, color: "#c8f04a", marginTop: 8 }}>
           Software que resuelve operación real
         </div>
         <div style={{ fontSize: 26, color: "#8b9bb8", marginTop: 16 }}>
-          web · móvil · datos + IA — +19 proyectos en Git
+          web · móvil · datos + IA — Medellín, CO
         </div>
       </div>
     ),

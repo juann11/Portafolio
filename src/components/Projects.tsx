@@ -1,12 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Plus } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { projects } from "@/data/portfolio";
+import Demo from "@/components/Demos";
 
 export default function Projects() {
   const [open, setOpen] = useState<string | null>("gfac");
+  // La terminal del hero navega a #p-<slug>: abrimos ese proyecto.
+  useEffect(() => {
+    const abrir = () => {
+      const slug = window.location.hash.replace("#p-", "");
+      if (!projects.some((p) => p.slug === slug)) return;
+      setOpen(slug);
+      // Esperamos a que el acordeón termine de moverse; si no, el scroll se corta a mitad de camino.
+      setTimeout(() => document.getElementById(`p-${slug}`)?.scrollIntoView({ block: "start" }), 400);
+    };
+    window.addEventListener("hashchange", abrir);
+    return () => window.removeEventListener("hashchange", abrir);
+  }, []);
   return (
     <section id="proyectos" className="mx-auto max-w-6xl px-5 py-20">
       <p className="font-mono2 text-xs tracking-widest text-[#57e6ff]">01 · TRABAJO SELECCIONADO</p>
@@ -22,7 +35,7 @@ export default function Projects() {
           const isOpen = open === p.slug;
           const num = String(i + 1).padStart(2, "0");
           return (
-            <div key={p.slug} className="border-b border-white/10">
+            <div key={p.slug} id={`p-${p.slug}`} className="scroll-mt-24 border-b border-white/10">
               <button
                 onClick={() => setOpen(isOpen ? null : p.slug)}
                 aria-expanded={isOpen}
@@ -55,11 +68,10 @@ export default function Projects() {
                     className="overflow-hidden"
                   >
                     <div className="pb-8 md:pl-[70px]">
-                      <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${p.cover} p-6 md:p-8`}>
+                      <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${p.cover} p-4 md:p-8`}>
                         <div className="blueprint-grid absolute inset-0 opacity-60" aria-hidden />
-                        <p className="font-display relative text-7xl font-bold text-white/15 md:text-8xl">/{num}</p>
-                        <p className="font-display relative mt-1 text-2xl font-bold text-white md:text-3xl">{p.title}</p>
-                        <div className="relative mt-3 flex flex-wrap gap-2">
+                        <Demo slug={p.slug} />
+                        <div className="relative mt-5 flex flex-wrap gap-2">
                           {p.tech.map((t) => (
                             <span key={t} className="rounded-full bg-black/45 px-3 py-1 text-xs text-slate-100 backdrop-blur">{t}</span>
                           ))}

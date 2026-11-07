@@ -80,10 +80,19 @@ export function Stack() {
       </div>
       <div className="mt-6 rounded-3xl border border-white/10 p-6">
         <p className="font-mono2 text-xs text-slate-500">MÉTODO DE ENTREGA</p>
-        <div className="mt-3 grid gap-3 text-sm md:grid-cols-4">
-          {method.map(([t, d]) => (
-            <div key={t} className="rounded-2xl bg-white/5 p-4"><p className="font-display font-bold text-white">{t}</p><p className="mt-1 text-slate-400">{d}</p></div>
-          ))}
+        <div className="relative mt-6">
+          {/* Línea que se traza al entrar en pantalla: vertical en móvil, horizontal en escritorio */}
+          <span aria-hidden className="absolute bottom-2 left-[6px] top-2 w-px bg-white/10 md:hidden" />
+          <motion.span aria-hidden initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }} className="absolute inset-x-0 top-[6px] hidden h-px origin-left bg-gradient-to-r from-[#c8f04a] via-[#57e6ff] to-[#8b7bff] md:block" />
+          <ol className="grid gap-6 md:grid-cols-4">
+            {method.map(([t, d], i) => (
+              <motion.li key={t} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ delay: 0.15 + i * 0.25, duration: 0.4 }} className="relative pl-7 md:pl-0 md:pt-8">
+                <span aria-hidden className="absolute left-0 top-1 h-3.5 w-3.5 rounded-full border-2 border-[#c8f04a] bg-[#060913] md:top-0" />
+                <p className="font-display font-bold text-white">{t}</p>
+                <p className="mt-1 text-sm text-slate-400">{d}</p>
+              </motion.li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
@@ -110,7 +119,7 @@ export function Contact() {
         <p className="font-mono2 text-xs tracking-widest text-[#c8f04a]">05 · CONTACTO</p>
         <h2 className="font-display mt-2 max-w-2xl text-4xl font-bold md:text-5xl">Hablemos del sistema que necesitas poner a andar.</h2>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
-          <form className="space-y-3" onSubmit={enviar}>
+          <form className="min-w-0 space-y-3" onSubmit={enviar}>
             <input type="text" name="empresa" tabIndex={-1} autoComplete="off" aria-hidden value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} className="hidden" />
             <input required aria-label="Tu nombre" maxLength={100} placeholder="Tu nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
             <input required type="email" aria-label="Tu email" maxLength={200} placeholder="tu@empresa.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-slate-500 focus:border-[#c8f04a]/60" />
@@ -124,9 +133,9 @@ export function Contact() {
               <a href={profile.linkedin} target="_blank" rel="noreferrer" className="flex-1 rounded-2xl border border-white/15 py-2.5 hover:bg-white/5">LinkedIn</a>
             </div>
           </form>
-          <div className="font-mono2 space-y-2 rounded-2xl bg-black/50 p-5 text-[13px]">
+          <div className="font-mono2 min-w-0 space-y-2 break-words rounded-2xl bg-black/50 p-5 text-[13px]">
             <p className="text-slate-500"># respuesta en &lt; 24h</p>
-            <p><span className="text-[#c8f04a]">$</span> email → {profile.email}</p>
+            <p className="break-all"><span className="text-[#c8f04a]">$</span> email → {profile.email}</p>
             <p><span className="text-[#c8f04a]">$</span> github → github.com/juann11</p>
             <p><span className="text-[#c8f04a]">$</span> ubicación → Medellín, CO (remoto OK)</p>
             <p><span className="text-[#c8f04a]">$</span> WhatsApp → +57 301 954 3555</p>

@@ -4,7 +4,7 @@ import { Search } from "lucide-react";
 const actions = [
   { label: "Ir a Proyectos", href: "#proyectos" },
   { label: "Ir a Servicios", href: "#servicios" },
-  { label: "LinkedIn de Juan", href: "https://www.linkedin.com/in/juan-jos%C3%A9-ospina-a5b771212" },
+  { label: "LinkedIn de Juan", href: "https://www.linkedin.com/in/juanjose-ospina-dev" },
   { label: "GitHub @juann11", href: "https://github.com/juann11" },
   { label: "Contactar por email", href: "#contacto" },
 ];

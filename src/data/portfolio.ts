@@ -9,7 +9,7 @@ export const profile = {
   education: "Ingeniería de Sistemas · UPB Medellín",
   email: "juanjoospina2018@gmail.com",
   github: "https://github.com/juann11",
-  linkedin: "https://www.linkedin.com/in/juan-jos%C3%A9-ospina-a5b771212",
+  linkedin: "https://www.linkedin.com/in/juanjose-ospina-dev",
   whatsapp: "https://wa.me/573019543555",
   availability: "Abierto a proyectos y posiciones de desarrollo",
 };

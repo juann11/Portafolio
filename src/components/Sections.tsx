@@ -149,7 +149,7 @@ export function Contact() {
             <p><span className="text-[#c8f04a]">$</span> github → github.com/juann11</p>
             <p><span className="text-[#c8f04a]">$</span> ubicación → Medellín, CO (remoto OK)</p>
             <p><span className="text-[#c8f04a]">$</span> WhatsApp → +57 301 954 3555</p>
-            <p><span className="text-[#c8f04a]">$</span> busco → <span className="text-green-400">práctica o contrato de aprendizaje</span></p>
+            <p><span className="text-[#c8f04a]">$</span> modo → <span className="text-green-400">proyecto o posición</span></p>
             <p className="pt-3 text-slate-400">Atajo: <b className="text-white">Ctrl+K</b> para moverte por el sitio.</p>
           </div>
         </div>

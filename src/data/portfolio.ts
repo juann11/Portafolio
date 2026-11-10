@@ -12,7 +12,7 @@ export const profile = {
   github: "https://github.com/juann11",
   linkedin: "https://www.linkedin.com/in/juanjoseospina-dev",
   whatsapp: "https://wa.me/573019543555",
-  availability: "Busco práctica profesional · contrato de aprendizaje",
+  availability: "Abierto a proyectos y posiciones de desarrollo",
 };
 
 export type Project = {

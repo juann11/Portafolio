@@ -30,7 +30,7 @@ describe("terminal del hero", () => {
   it("abrir con número inválido no navega y explica", () => {
     const r = ejecutar("abrir 99");
     expect(r.ir).toBeUndefined();
-    expect(r.lineas.join(" ")).toMatch(/1 y 5|1-5/);
+    expect(r.lineas.join(" ")).toContain(`1 y ${projects.length}`);
   });
 
   it("contratar lleva al contacto", () => {

@@ -47,9 +47,9 @@ export default function Hero() {
             <span key={i} className="flex items-center gap-2.5 font-display text-sm font-semibold text-slate-200">
               {s.icon ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={s.icon} alt={s.name} width={22} height={22} loading="lazy" className={s.invert ? "invert" : ""} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                <img src={s.icon} alt="" width={22} height={22} loading="lazy" className={s.invert ? "invert" : ""} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
               ) : (
-                <span className="grid h-[22px] w-[22px] place-items-center rounded-md bg-[#c8f04a] text-[10px] font-bold text-black">n8n</span>
+                <span className="h-2 w-2 rounded-full bg-[#57e6ff]" />
               )}
               {s.name}
               <span className="ml-6 text-slate-600">◆</span>

@@ -1,8 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { Globe, Package, Bot, Wrench, Send, CheckCircle2 } from "lucide-react";
+import { Globe, Package, Bot, Wrench, Send, CheckCircle2, SquareTerminal, Sparkles, ScanText, Plug, Webhook, FlaskConical, RefreshCw, Database, KeyRound, Bug, ShieldCheck, type LucideIcon } from "lucide-react";
 import { useState } from "react";
 import { profile, skills, services, method, skillIcons } from "@/data/portfolio";
+
+// Conceptos sin logo de marca: ícono de Lucide en el color de acento
+const iconosConcepto: Record<string, LucideIcon> = {
+  Codex: SquareTerminal, "APIs de LLM": Sparkles, "Tesseract OCR": ScanText, "APIs REST": Plug, Webhooks: Webhook,
+  Tests: FlaskConical, Scrum: RefreshCw, Room: Database, "JWT + RBAC": KeyRound,
+  "Análisis de vulnerabilidades": Bug, "Código seguro": ShieldCheck,
+};
 
 const icons: Record<string, React.ReactNode> = {
   Globe: <Globe size={22} />, Package: <Package size={22} />, Bot: <Bot size={22} />, Wrench: <Wrench size={22} />,
@@ -55,18 +62,21 @@ export function Stack() {
     <section id="stack" className="mx-auto max-w-6xl px-5 py-20">
       <p className="font-mono2 text-xs tracking-widest text-[#57e6ff]">04 · CAPACIDAD TÉCNICA</p>
       <h2 className="font-display mt-2 text-4xl font-bold md:text-5xl">Cobertura completa del ciclo de un sistema</h2>
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {skills.map((g) => (
           <div key={g.group} className="rounded-3xl border border-white/10 bg-[#0c1226] p-6">
             <h3 className="font-display font-bold text-[#c8f04a]">{g.group}</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               {g.items.map((s) => {
                 const ic = skillIcons[s];
+                const Concepto = iconosConcepto[s];
                 return (
                   <span key={s} className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100">
                     {ic ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={ic.icon} alt={s} width={20} height={20} loading="lazy" className={ic.invert ? "invert" : ""} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                      <img src={ic.icon} alt="" width={20} height={20} loading="lazy" className={ic.invert ? "invert" : ""} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                    ) : Concepto ? (
+                      <Concepto size={18} strokeWidth={2} className="text-[#57e6ff]" aria-hidden />
                     ) : (
                       <span className="h-2 w-2 rounded-full bg-[#57e6ff]" />
                     )}

@@ -200,13 +200,15 @@ export const projects: Project[] = [
 
 export const skills = [
   { group: "Frontend, Móvil y Escritorio", items: ["Next.js", "React + Vite", "TypeScript", "Tailwind", "Kotlin", "Jetpack Compose", "Rust", "Tauri", "Figma"] },
-  { group: "Backend y Datos", items: ["Node.js", "Express", "NestJS", "Python", "FastAPI", "Postgres", "Supabase", "Firebase", "Room", "JWT + RBAC"] },
+  { group: "Backend y Datos", items: ["Node.js", "Express", "NestJS", "Python", "FastAPI", "Postgres", "Supabase", "Firebase", "Room"] },
   { group: "Calidad y Entrega", items: ["Docker", "Vercel", "Render", "Git + GitHub", "Tests", "Scrum", "Trello"] },
-  { group: "Integración e IA", items: ["Claude Code", "Codex", "APIs de LLM", "Tesseract OCR", "APIs REST", "OAuth Google", "n8n", "Webhooks"] },
+  { group: "Inteligencia artificial", items: ["Claude Code", "Codex", "APIs de LLM", "Tesseract OCR"] },
+  { group: "Integración y Automatización", items: ["n8n", "APIs REST", "Webhooks", "OAuth Google"] },
   { group: "Seguridad", items: ["Kali Linux", "Análisis de vulnerabilidades", "Código seguro", "JWT + RBAC"] },
 ];
 
 const ICON_CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+const SIMPLE_ICONS = "https://cdn.simpleicons.org";
 export const skillIcons: Record<string, { icon: string; invert?: boolean }> = {
   "Next.js": { icon: `${ICON_CDN}/nextjs/nextjs-original.svg`, invert: true },
   "React + Vite": { icon: `${ICON_CDN}/react/react-original.svg` },
@@ -215,7 +217,7 @@ export const skillIcons: Record<string, { icon: string; invert?: boolean }> = {
   Kotlin: { icon: `${ICON_CDN}/kotlin/kotlin-original.svg` },
   Rust: { icon: `${ICON_CDN}/rust/rust-original.svg`, invert: true },
   Tauri: { icon: `${ICON_CDN}/tauri/tauri-original.svg` },
-  "Kali Linux": { icon: `${ICON_CDN}/kalilinux/kalilinux-original.svg` },
+  "Kali Linux": { icon: `${SIMPLE_ICONS}/kalilinux/white` },
   "Jetpack Compose": { icon: `${ICON_CDN}/jetpackcompose/jetpackcompose-original.svg` },
   Figma: { icon: `${ICON_CDN}/figma/figma-original.svg` },
   "Node.js": { icon: `${ICON_CDN}/nodejs/nodejs-original.svg` },
@@ -230,6 +232,10 @@ export const skillIcons: Record<string, { icon: string; invert?: boolean }> = {
   Vercel: { icon: `${ICON_CDN}/vercel/vercel-original.svg`, invert: true },
   "Git + GitHub": { icon: `${ICON_CDN}/github/github-original.svg`, invert: true },
   Trello: { icon: `${ICON_CDN}/trello/trello-plain.svg` },
+  Render: { icon: `${SIMPLE_ICONS}/render/white` },
+  "Claude Code": { icon: `${SIMPLE_ICONS}/claude` },
+  n8n: { icon: `${SIMPLE_ICONS}/n8n` },
+  "OAuth Google": { icon: `${SIMPLE_ICONS}/google` },
 };
 
 export const services = [
@@ -266,22 +272,8 @@ export const method = [
   ["04 · Entrego", "Despliegue, documentación y transferencia. El sistema debe sobrevivir sin mí."],
 ];
 
-const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+// El carrusel reutiliza los íconos del stack
 export const techMarquee = [
-  { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg`, invert: true },
-  { name: "React", icon: `${CDN}/react/react-original.svg` },
-  { name: "TypeScript", icon: `${CDN}/typescript/typescript-original.svg` },
-  { name: "Tailwind", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
-  { name: "Node.js", icon: `${CDN}/nodejs/nodejs-original.svg` },
-  { name: "Python", icon: `${CDN}/python/python-original.svg` },
-  { name: "Rust", icon: `${CDN}/rust/rust-original.svg`, invert: true },
-  { name: "Postgres", icon: `${CDN}/postgresql/postgresql-original.svg` },
-  { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
-  { name: "Firebase", icon: `${CDN}/firebase/firebase-plain.svg` },
-  { name: "Vercel", icon: `${CDN}/vercel/vercel-original.svg`, invert: true },
-  { name: "Git", icon: `${CDN}/git/git-original.svg` },
-  { name: "GitHub", icon: `${CDN}/github/github-original.svg`, invert: true },
-  { name: "Figma", icon: `${CDN}/figma/figma-original.svg` },
-  { name: "Trello", icon: `${CDN}/trello/trello-plain.svg` },
-  { name: "n8n", icon: "" },
-];
+  "Next.js", "React + Vite", "TypeScript", "Tailwind", "Node.js", "NestJS", "Python", "FastAPI", "Kotlin",
+  "Rust", "Tauri", "Postgres", "Supabase", "Docker", "Vercel", "Claude Code", "n8n", "Git + GitHub", "Figma",
+].map((name) => ({ name, ...skillIcons[name] }));

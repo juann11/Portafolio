@@ -199,10 +199,11 @@ export const projects: Project[] = [
 ];
 
 export const skills = [
-  { group: "Frontend y Móvil", items: ["Next.js", "React + Vite", "TypeScript", "Tailwind", "Kotlin", "Jetpack Compose", "Figma"] },
+  { group: "Frontend, Móvil y Escritorio", items: ["Next.js", "React + Vite", "TypeScript", "Tailwind", "Kotlin", "Jetpack Compose", "Rust", "Tauri", "Figma"] },
   { group: "Backend y Datos", items: ["Node.js", "Express", "NestJS", "Python", "FastAPI", "Postgres", "Supabase", "Firebase", "Room", "JWT + RBAC"] },
   { group: "Calidad y Entrega", items: ["Docker", "Vercel", "Render", "Git + GitHub", "Tests", "Scrum", "Trello"] },
-  { group: "Integración e IA", items: ["APIs REST", "OAuth Google", "Tesseract OCR", "Recharts", "n8n", "Webhooks"] },
+  { group: "Integración e IA", items: ["Claude Code", "Codex", "APIs de LLM", "Tesseract OCR", "APIs REST", "OAuth Google", "n8n", "Webhooks"] },
+  { group: "Seguridad", items: ["Kali Linux", "Análisis de vulnerabilidades", "Código seguro", "JWT + RBAC"] },
 ];
 
 const ICON_CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
@@ -212,6 +213,9 @@ export const skillIcons: Record<string, { icon: string; invert?: boolean }> = {
   TypeScript: { icon: `${ICON_CDN}/typescript/typescript-original.svg` },
   Tailwind: { icon: `${ICON_CDN}/tailwindcss/tailwindcss-original.svg` },
   Kotlin: { icon: `${ICON_CDN}/kotlin/kotlin-original.svg` },
+  Rust: { icon: `${ICON_CDN}/rust/rust-original.svg`, invert: true },
+  Tauri: { icon: `${ICON_CDN}/tauri/tauri-original.svg` },
+  "Kali Linux": { icon: `${ICON_CDN}/kalilinux/kalilinux-original.svg` },
   "Jetpack Compose": { icon: `${ICON_CDN}/jetpackcompose/jetpackcompose-original.svg` },
   Figma: { icon: `${ICON_CDN}/figma/figma-original.svg` },
   "Node.js": { icon: `${ICON_CDN}/nodejs/nodejs-original.svg` },
@@ -270,6 +274,7 @@ export const techMarquee = [
   { name: "Tailwind", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
   { name: "Node.js", icon: `${CDN}/nodejs/nodejs-original.svg` },
   { name: "Python", icon: `${CDN}/python/python-original.svg` },
+  { name: "Rust", icon: `${CDN}/rust/rust-original.svg`, invert: true },
   { name: "Postgres", icon: `${CDN}/postgresql/postgresql-original.svg` },
   { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
   { name: "Firebase", icon: `${CDN}/firebase/firebase-plain.svg` },

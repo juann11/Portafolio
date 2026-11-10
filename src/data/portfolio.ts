@@ -21,17 +21,48 @@ export type Project = {
   subtitle: string;
   description: string;
   tech: string[];
-  category: "Full-Stack" | "Frontend" | "Sistemas" | "Backend" | "Móvil";
+  category: "Full-Stack" | "Frontend" | "Sistemas" | "Backend" | "Móvil" | "Escritorio";
   github: string;
   featured?: boolean;
   highlights: string[];
   impact: string;
   metrica: string;
+  logro?: string;
+  enlace?: { label: string; url: string };
   cover: string;
   story: { label: string; text: string }[];
 };
 
 export const projects: Project[] = [
+  {
+    slug: "neo",
+    title: "NEO · Isla para agentes de IA",
+    subtitle: "App de escritorio · Rust + Tauri 2",
+    description:
+      "Un pequeño robot que vive arriba de la pantalla y vigila a tus agentes de IA: muestra qué hacen en vivo y permite aprobar sus permisos con un clic, sin ir a la terminal.",
+    story: [
+      { label: "Problema", text: "al trabajar con agentes de IA pasas el día saltando a la terminal para ver si terminaron o si esperan un permiso." },
+      { label: "Decisión", text: "app de escritorio nativa en Rust + Tauri 2. Cada agente ejecuta un binario mínimo (neo-hook) en cada evento, que habla con el núcleo por un canal local y espera tu decisión. Si NEO no responde, el agente sigue como siempre: nunca lo bloquea." },
+      { label: "Estructura", text: "núcleo en Rust, interfaz en TypeScript sin framework, personaje dibujado con código en Canvas 2D, dictado sin conexión, claves en el gestor de credenciales del sistema y CI con releases para Windows y Linux." },
+      { label: "Resultado", text: "compatible con 11 agentes (Claude Code, Codex, Cursor, Gemini CLI…), sin cuenta, sin telemetría y con actualizaciones automáticas." },
+    ],
+    tech: ["Rust", "Tauri 2", "TypeScript", "Canvas 2D", "CI/CD", "Windows + Linux"],
+    category: "Escritorio",
+    github: "https://github.com/juann11/NEO",
+    featured: true,
+    highlights: [
+      "neo-hook en Rust que nunca bloquea al agente",
+      "Permitir / Denegar permisos con un clic",
+      "11 agentes compatibles: Claude Code, Codex, Cursor…",
+      "Sin telemetría: claves en el gestor del sistema",
+      "Releases y auto-actualización desde CI",
+    ],
+    impact: "Controlas a todos tus agentes de IA sin salir de lo que estás haciendo",
+    metrica: "11 agentes de IA · sin telemetría",
+    logro: "Open source · MIT",
+    enlace: { label: "Descargar", url: "https://github.com/juann11/NEO/releases" },
+    cover: "from-[#22c55e] via-[#14532d] to-[#060913]",
+  },
   {
     slug: "gfac",
     title: "GFAC · Gestión de Facturas",
@@ -57,6 +88,7 @@ export const projects: Project[] = [
     ],
     impact: "Facturación digitalizada de punta a punta, con evidencia testeada",
     metrica: "~84 pruebas automatizadas",
+    logro: "Destacado por el jurado",
     cover: "from-[#0ea5e9] via-[#1e3a8a] to-[#060913]",
   },
   {
@@ -109,6 +141,7 @@ export const projects: Project[] = [
     ],
     impact: "Toda la vida académica en una app que no necesita internet",
     metrica: "100% offline · Android nativo",
+    logro: "Publicada en Google Play",
     cover: "from-[#8b7bff] via-[#4c1d95] to-[#060913]",
   },
   {
@@ -160,6 +193,7 @@ export const projects: Project[] = [
     ],
     impact: "Sistema operable sin infraestructura, listo para escalar a multi-sede",
     metrica: "0 servidores · funciona sin internet",
+    logro: "Publicada en Google Play",
     cover: "from-[#57e6ff] via-[#0e7490] to-[#060913]",
   },
 ];

@@ -7,7 +7,7 @@ import { projects } from "@/data/portfolio";
 import Demo from "@/components/Demos";
 
 export default function Projects() {
-  const [open, setOpen] = useState<string | null>("gfac");
+  const [open, setOpen] = useState<string | null>("neo");
   // La terminal del hero navega a #p-<slug>: abrimos ese proyecto.
   useEffect(() => {
     const abrir = () => {
@@ -46,7 +46,10 @@ export default function Projects() {
                   <span className={`font-display block text-2xl font-bold transition group-hover:translate-x-1 md:text-4xl ${isOpen ? "text-white" : "text-slate-200"}`}>
                     {p.title}
                   </span>
-                  <span className="mt-1 block text-sm text-[#57e6ff]">{p.subtitle}</span>
+                  <span className="mt-1 flex flex-wrap items-center gap-2 text-sm text-[#57e6ff]">
+                    {p.subtitle}
+                    {p.logro && <span className="rounded-full border border-[#c8f04a]/40 bg-[#c8f04a]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#c8f04a]">★ {p.logro}</span>}
+                  </span>
                   <span className="mt-2 block font-mono2 text-xs text-[#c8f04a]">→ {p.metrica}</span>
                 </span>
                 <span className="hidden flex-wrap gap-1.5 md:flex">
@@ -88,6 +91,11 @@ export default function Projects() {
                             <a href={p.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#c8f04a]">
                               <GithubIcon size={16} /> Código
                             </a>
+                            {p.enlace && (
+                              <a href={p.enlace.url} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-[#c8f04a] hover:text-[#c8f04a]">
+                                {p.enlace.label} <ArrowUpRight size={15} />
+                              </a>
+                            )}
                           </div>
                         </div>
                         <div className="space-y-3 rounded-2xl bg-black/40 p-5 text-sm">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Check, Flame, ScanLine, Trophy, WifiOff } from "lucide-react";
 
 // Mini-demos animadas en CSS (keyframes en globals.css): ilustran qué hace cada sistema sin capturas.
@@ -5,6 +6,23 @@ import { Check, Flame, ScanLine, Trophy, WifiOff } from "lucide-react";
 
 const panel = "relative mx-auto w-full max-w-xl tabular-nums rounded-2xl border border-white/10 bg-[#070b17]/90 p-4 font-mono2 text-[12px] text-slate-300 shadow-2xl backdrop-blur md:p-5";
 const ciclo = (delay: number) => ({ animationDelay: `${delay}s` });
+
+function Neo() {
+  return (
+    <div className={`${panel} space-y-4`}>
+      {/* Imagen real del repo de NEO: sus estados */}
+      <Image src="/proyectos/neo-estados.png" alt="" width={800} height={125} className="w-full rounded-lg" />
+      <div className="mx-auto max-w-sm rounded-2xl border border-white/10 bg-black/60 p-3">
+        <p className="flex items-center gap-2 text-[#fbbf24]"><span className="h-2 w-2 rounded-full bg-[#fbbf24]" /> Claude Code pide permiso</p>
+        <p className="mt-1.5 truncate rounded-md bg-white/5 px-2 py-1.5 text-white">$ npm test -- --run</p>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          <span className="demo-correcta rounded-lg border border-white/10 px-3 py-1.5 text-center">Permitir</span>
+          <span className="rounded-lg border border-white/10 px-3 py-1.5 text-center text-slate-400">Denegar</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Ocr() {
   const campos = [
@@ -144,6 +162,7 @@ function Inventario() {
 }
 
 const demos: Record<string, { Comp: () => React.JSX.Element; label: string }> = {
+  neo: { Comp: Neo, label: "Los estados del robot NEO y una solicitud de permiso de un agente de IA" },
   gfac: { Comp: Ocr, label: "Factura escaneada con OCR que llena los campos automáticamente" },
   "helpdesk-upb": { Comp: Sla, label: "Tickets con barras de SLA según prioridad" },
   "sipe-nativa": { Comp: Racha, label: "App móvil offline con racha de estudio" },

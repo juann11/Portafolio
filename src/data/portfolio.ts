@@ -1,6 +1,7 @@
 export const profile = {
   name: "Juan José Ospina",
   site: "https://portafolio-jjoa-dev.vercel.app",
+  cv: "/cv/CV-Juan-Jose-Ospina.pdf",
   shortName: "Juan Ospina",
   tagline:
     "Resuelvo operación real con software: sistemas web, apps móviles, APIs con IA/OCR, datos y automatización. Del levantamiento al despliegue, con estructura que se puede mantener.",

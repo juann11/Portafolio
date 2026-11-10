@@ -2,7 +2,7 @@ import { profile, projects, skills } from "@/data/portfolio";
 
 export type Salida = { lineas: string[]; ir?: string; limpiar?: boolean };
 
-export const COMANDOS = ["help", "whoami", "proyectos", "abrir <n>", "stack", "contacto", "contratar", "github", "clear"];
+export const COMANDOS = ["help", "whoami", "proyectos", "abrir <n>", "stack", "contacto", "contratar", "cv", "github", "clear"];
 
 const ayuda = [
   "Comandos disponibles:",
@@ -12,6 +12,7 @@ const ayuda = [
   "  stack        con qué trabajo",
   "  contacto     cómo hablarme",
   "  contratar    ir directo al formulario",
+  "  cv           descargar mi hoja de vida (PDF)",
   "  github       abrir mi GitHub",
   "  clear        limpiar la pantalla",
   "  help         esta ayuda",
@@ -44,6 +45,8 @@ export function ejecutar(entrada: string): Salida {
     case "contratar":
     case "hire":
       return { lineas: ["Excelente decisión. Llevándote al formulario…"], ir: "#contacto" };
+    case "cv":
+      return { lineas: ["Abriendo mi hoja de vida…"], ir: profile.cv };
     case "github":
       return { lineas: ["Abriendo GitHub…"], ir: profile.github };
     case "clear":

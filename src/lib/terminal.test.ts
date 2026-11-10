@@ -41,6 +41,11 @@ describe("terminal del hero", () => {
     expect(ejecutar("github").ir).toBe(profile.github);
   });
 
+  it("cv abre la hoja de vida en PDF", () => {
+    expect(ejecutar("cv").ir).toBe(profile.cv);
+    expect(profile.cv).toMatch(/\.pdf$/);
+  });
+
   it("clear limpia la pantalla", () => {
     expect(ejecutar("clear").limpiar).toBe(true);
   });

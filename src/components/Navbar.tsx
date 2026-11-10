@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Terminal, FileDown } from "lucide-react";
+import { profile } from "@/data/portfolio";
 
 const links = [
   { href: "#proyectos", label: "Proyectos" },
@@ -29,6 +30,7 @@ export default function Navbar() {
           {links.map((l) => (
             <a key={l.href} href={l.href} className="transition hover:text-white">{l.label}</a>
           ))}
+          <a href={profile.cv} download className="flex items-center gap-1.5 transition hover:text-white"><FileDown size={15} /> CV</a>
           <a href="#contacto" className="rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-[#c8f04a]">
             Hablemos
           </a>
@@ -42,6 +44,7 @@ export default function Navbar() {
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1 text-slate-200">{l.label}</a>
           ))}
+          <a href={profile.cv} download onClick={() => setOpen(false)} className="flex items-center gap-2 py-1 text-[#c8f04a]"><FileDown size={16} /> Descargar CV</a>
         </div>
       )}
     </header>

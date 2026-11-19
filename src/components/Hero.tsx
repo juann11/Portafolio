@@ -33,7 +33,11 @@ export default function Hero() {
               Ver proyectos <ArrowRight size={17} className="transition group-hover:translate-x-1" />
             </a>
             <a href="#contacto" className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:border-white/50 hover:bg-white/5">Hablemos</a>
-            <a href={profile.cv} download className="flex items-center gap-2 rounded-full border border-[#c8f04a]/40 px-6 py-3 font-semibold text-[#c8f04a] transition hover:bg-[#c8f04a]/10"><FileDown size={17} /> Descargar CV</a>
+            {/* Un solo botón dividido: CV con diseño + versión ATS para portales de empleo */}
+            <div className="flex items-stretch overflow-hidden rounded-full border border-[#c8f04a]/40 font-semibold text-[#c8f04a]">
+              <a href={profile.cv} download className="flex items-center gap-2 py-3 pl-6 pr-4 transition hover:bg-[#c8f04a]/10"><FileDown size={17} /> Descargar CV</a>
+              <a href={profile.cvAts} download title="Una columna, sin imágenes: para portales de empleo" aria-label="Descargar CV versión ATS" className="flex items-center border-l border-[#c8f04a]/40 py-3 pl-4 pr-5 text-sm transition hover:bg-[#c8f04a]/10">ATS</a>
+            </div>
             <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="grid h-12 w-12 place-items-center rounded-full border border-white/10 text-slate-300 transition hover:border-white/40 hover:text-white"><GithubIcon size={18} /></a>
           </div>
         </div>

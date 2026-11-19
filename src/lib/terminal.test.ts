@@ -46,6 +46,11 @@ describe("terminal del hero", () => {
     expect(profile.cv).toMatch(/\.pdf$/);
   });
 
+  it("cv ats abre la versión ATS de la hoja de vida", () => {
+    expect(ejecutar("cv ats").ir).toBe(profile.cvAts);
+    expect(profile.cvAts).toMatch(/-ATS\.pdf$/);
+  });
+
   it("clear limpia la pantalla", () => {
     expect(ejecutar("clear").limpiar).toBe(true);
   });

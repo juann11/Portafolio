@@ -1,10 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
+import { profile } from "@/data/portfolio";
 const actions = [
   { label: "Ir a Proyectos", href: "#proyectos" },
   { label: "Ir a Servicios", href: "#servicios" },
-  { label: "LinkedIn de Juan", href: "https://www.linkedin.com/in/juanjoseospina-dev" },
+  { label: "Descargar CV", href: profile.cv },
+  { label: "Descargar CV versión ATS", href: profile.cvAts },
+  { label: "LinkedIn de Juan", href: profile.linkedin },
   { label: "GitHub @juann11", href: "https://github.com/juann11" },
   { label: "Contactar por email", href: "#contacto" },
 ];

@@ -13,6 +13,7 @@ const ayuda = [
   "  contacto     cómo hablarme",
   "  contratar    ir directo al formulario",
   "  cv           descargar mi hoja de vida (PDF)",
+  "  cv ats       versión ATS, para portales de empleo",
   "  github       abrir mi GitHub",
   "  clear        limpiar la pantalla",
   "  help         esta ayuda",
@@ -46,6 +47,7 @@ export function ejecutar(entrada: string): Salida {
     case "hire":
       return { lineas: ["Excelente decisión. Llevándote al formulario…"], ir: "#contacto" };
     case "cv":
+      if (args[0] === "ats") return { lineas: ["Abriendo mi hoja de vida en versión ATS…"], ir: profile.cvAts };
       return { lineas: ["Abriendo mi hoja de vida…"], ir: profile.cv };
     case "github":
       return { lineas: ["Abriendo GitHub…"], ir: profile.github };

@@ -2,6 +2,8 @@ export const profile = {
   name: "Juan José Ospina",
   site: "https://portafolio-jjoa-dev.vercel.app",
   cv: "/cv/CV-Juan-Jose-Ospina.pdf",
+  // Versión de una columna, sin imágenes, para portales de empleo (ATS)
+  cvAts: "/cv/CV-Juan-Jose-Ospina-ATS.pdf",
   shortName: "Juan Ospina",
   tagline:
     "Resuelvo operación real con software: sistemas web, apps móviles, APIs con IA/OCR, datos y automatización. Del levantamiento al despliegue, con estructura que se puede mantener.",
@@ -10,7 +12,7 @@ export const profile = {
   education: "Ingeniería de Sistemas · UPB Medellín",
   email: "juanjoospina2018@gmail.com",
   github: "https://github.com/juann11",
-  linkedin: "https://www.linkedin.com/in/juanjoseospina-dev",
+  linkedin: "https://www.linkedin.com/in/juanjose-ospina-dev",
   whatsapp: "https://wa.me/573019543555",
   availability: "Abierto a proyectos y posiciones de desarrollo",
 };

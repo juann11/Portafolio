@@ -161,7 +161,17 @@ function Inventario() {
   );
 }
 
+function Juego() {
+  return (
+    <div className={panel}>
+      {/* Gráfico real de la ficha de Google Play del juego */}
+      <Image src="/proyectos/escuadron-estelar.png" alt="" width={1024} height={500} className="w-full rounded-lg [image-rendering:pixelated]" />
+    </div>
+  );
+}
+
 const demos: Record<string, { Comp: () => React.JSX.Element; label: string }> = {
+  "escuadron-estelar": { Comp: Juego, label: "Gráfico de Escuadrón Estelar: la nave del jugador frente a un enemigo del Enjambre" },
   neo: { Comp: Neo, label: "Los estados del robot NEO y una solicitud de permiso de un agente de IA" },
   gfac: { Comp: Ocr, label: "Factura escaneada con OCR que llena los campos automáticamente" },
   "helpdesk-upb": { Comp: Sla, label: "Tickets con barras de SLA según prioridad" },

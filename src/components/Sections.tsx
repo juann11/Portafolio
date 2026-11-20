@@ -24,12 +24,14 @@ export function About() {
         <div className="space-y-4 text-slate-300">
           <p>Soy <b className="text-white">Juan José Ospina</b>, ingeniero de sistemas. Sé lo que un proyecto necesita para no volverse un problema después: <b className="text-white">alcance claro, arquitectura definida, datos bien modelados y criterios de entrega</b>.</p>
           <p>Mi formación es de sistemas, mi oficio es construir software completo: <b className="text-[#c8f04a]">entiendo la operación</b>, <b className="text-[#57e6ff]">diseño la estructura</b> y <b className="text-white">entrego algo que otro ingeniero puede mantener</b>. Interfaz cuidada sobre una base sólida.</p>
+          <p>Antes de programar trabajé como <b className="text-white">asesor de servicio al cliente en Teleperformance</b>: por eso primero entiendo qué necesita la persona. Hoy combino el desarrollo con la <b className="text-white">seguridad informática</b> y el trabajo diario con agentes de IA.</p>
           <div className="grid grid-cols-2 gap-3">
             {["Alcance y requerimientos", "Arquitectura y datos", "Calidad y validación", "Deploy y transferencia"].map((t) => (
               <p key={t} className="flex items-center gap-2 rounded-xl bg-white/5 px-3 py-2 text-sm"><CheckCircle2 size={15} className="text-[#c8f04a]" /> {t}</p>
             ))}
           </div>
           <p className="text-sm text-slate-500">Formación: {profile.education}.</p>
+          <p className="text-sm text-slate-500">Fuera del teclado: tiempo en familia, fútbol, senderismo, ciclismo y acampar.</p>
         </div>
       </div>
     </section>
